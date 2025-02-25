@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <script>
+        //Creamos las variables
+        let nota1, nota2, nota3;
+
+        //Pedimos introducir las notas por teclado
+        nota1 = prompt('Ingrese 1ra. nota:');
+        nota2 = prompt('Ingrese 2da. nota:');
+        nota3 = prompt('Ingrese 3ra. nota:');
+
+        //Convertimos los 3 string en float
+        nota1 = parseFloat(nota1);
+        nota2 = parseFloat(nota2);
+        nota3 = parseFloat(nota3);
+
+        //Calculamos el promedio
+        let pro;
+        pro = (nota1 + nota2 + nota3) / 3;
+
+        //Aplicacmos las condiciones:
+        if (pro >= 7) {
+            document.write('promocionado');
+        } else {
+            if (pro >= 4) {
+                document.write('regular');
+            } else {
+                document.write('suspendido');
+            }
+        }
+    </script>
+</body>
+</html>

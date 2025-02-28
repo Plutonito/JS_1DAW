@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras condicionales compuestas en Javascript</title>
+</head>
+<body>
+    <script>
+         let num;
+         //Esto es un comentario
+        num = parseInt(prompt('Ingrese un valor comprendido entre 1 y 99:'));
+        if (num < 10) {
+            document.write('El valor ingresado tiene un dígito');
+        } else if (num>=10 && num <=  99){ 
+            document.write('El valor ingresado tiene dos dígitos');
+        }
+        else{ 
+            document.write('El valor ingresado tiene más de dos dígitos');
+        }
+    </script>
+</body>
+</html>

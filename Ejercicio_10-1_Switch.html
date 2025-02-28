@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10-1 Estructuras switch en Javascript</title>
+</head>
+<body>
+    <script>
+    
+        /* Definimos la variable */
+        let palabra;
+        
+        /* Introducimos la palabra por teclado */
+        palabra = prompt('Ingrese alguna de estas palabras (casa, mesa, perro, gato) para traducirlas al ingles');
+        
+        /* Evalyamos las condiciones */
+        switch (palabra) {
+            case 'casa':
+                document.write('house');
+                break;
+            case 'mesa':
+                document.write('table');
+                break;
+            case 'perro':
+                document.write('dog');
+                break;
+            case 'gato':
+                document.write('cat');
+                break;
+            default:
+                document.write('Solo puedo traducir (casa, mesa, perro, gato)');
+                break;
+        }
+    </script>
+</body>
+</html>

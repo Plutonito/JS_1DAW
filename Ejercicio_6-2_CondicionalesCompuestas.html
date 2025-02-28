@@ -8,6 +8,8 @@
 </head>
 <body>
     <script>
+        
+        /* Definimos las variables */
         let nota1, nota2, nota3;
         nota1 = prompt('Ingrese primer nota:');
         nota1 = parseInt(nota1);
@@ -15,10 +17,14 @@
         nota2 = parseInt(nota2);
         nota3 = prompt('Ingrese tercer nota:');
         nota3 = parseInt(nota3);
+
+        /* Definimos las operaciones */
         let suma;
         suma = nota1 + nota2 + nota3;
         let promedio;
         promedio = suma / 3;
+
+        /*Evaluamos las condiciones */        
         if (promedio >= 5) {
             document.write('Aprobado');
         } else {

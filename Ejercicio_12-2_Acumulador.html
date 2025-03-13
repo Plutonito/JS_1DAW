@@ -18,7 +18,8 @@ la altura promedio de las personas.
         /* Definimos las variables:
         * x = contador
         * suma = suma de las alturas por pantalla
-        * /
+        * altura = valor de las alturas de las personas, que pedimos por pantalla
+        */
         let x = 1;
         let suma = 0;
         let altura;
@@ -30,6 +31,8 @@ la altura promedio de las personas.
 
             /* Acumulamos las alturas */
             suma = suma + altura;
+            
+            document.write('x='+x+' / suma='+suma+'<br>');
 
             /* Incrementamos el contador */
             x = x + 1;

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!--
+<!-- 
 Escribir un programa que lea 10 notas de alumnos y nos informe cuántos tienen notas
 mayores o iguales a 7 y cuántos menores.
 -->
@@ -14,38 +14,38 @@ mayores o iguales a 7 y cuántos menores.
 </head>
 <body>
     <script>
-
-        /* Definimos las variables */
-        let x = 0; //Variable contador
-        let cant1 = 0;
-        let cant2 = 0;
-
-        /*Iniciamos el bucle para pedir las 10 notas de los alumnos */
-        while (x < 10) {
-
-            /* Definimos la variable que vamos a pedir por pantalla */
+        /* Definimos las variables:
+        * x -> contador
+        * cant1 -> acumulador notas mayores o iguales que 7
+        * cant2 -> acumulador notas menores que 7
+        */
+        let x=1;
+        let cant1=0;
+        let cant2=0;
+        
+        /* Iniciamos el bucle while, hasta que x=10 */
+        while (x<=10) {
+            
+            /*Pedimos por teclado las notas */
             let nota;
-            let numAlumno = x+1;
-            nota = parseFloat(prompt('Ingrese nota (' + numAlumno + ')'));
-
-            /* Aplicamos una condición if , según que sea mayor o menor que 7 y los acumulamos
-            * en las variables definidas: cant1>=7, cant2<7
-            */ 
-            if (nota >= 7) {
-                //cant1 = cant1 + 1;
+            nota = parseFloat(prompt('Ingrese nota del alumno #'+x));
+            
+            /*Verificamos la condicion mayor igual o menor que 7 */
+            if (nota>=7) {
                 cant1++;
             } else {
-                cant2 = cant2 + 1;
+                cant2++;
             }
-
-            /* Incrementamos en uno el contador x */
-            x = x + 1;
+            
+            /* Incrementamos el contador */
+            x++;
         }
-
+        
         /* Mostramos los resultados por pantalla */
-        document.write('Cantidad de alumnos con notas mayores o iguales a 7: ' + cant1);
+        document.write('<h1>Notas de los alumnos</h1>');
+        document.write('Alumnos con nota >= 7 : '+cant1);
         document.write('<br>');
-        document.write('Cantidad de alumnos con notas menores a 7: ' + cant2);
+        document.write('Alumnos con nota < 7 : '+cant2);  
     </script>
 </body>
 </html>

@@ -8,17 +8,27 @@
 </head>
 <body>
     <script>
+
+        /* Definimos la variable que */
          let num;
+
          //Esto es un comentario
         num = parseInt(prompt('Ingrese un valor comprendido entre 1 y 99:'));
-        if (num < 10) {
+
+        if (num<1) {
+            document.write('El valor debe ser mayor o igual que 1');    
+        }
+        else if (num<10) {
             document.write('El valor ingresado tiene un dígito');
-        } else if (num>=10 && num <=  99){ 
+
+        } else if (num<=99){ 
             document.write('El valor ingresado tiene dos dígitos');
         }
-        else{ 
+        else { 
             document.write('El valor ingresado tiene más de dos dígitos');
         }
+
+
     </script>
 </body>
 </html>

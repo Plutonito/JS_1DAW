@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!--
+Mostrar los múltiplos de 8 hasta el valor 500. Debe aparecer en pantalla 8 -16 -24, etc.
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 11-2 While</title>
+    </head>
+    <body>
+        <script>
+
+            /* Definimos dos variables, e iniciamos una de ellas como contador */
+            let multiplo8,x;
+            x = 1; //Iniciamos la variable x como un contador.
+            multiplo8 = 0;
+
+            /* Iniciamos el bucle while, que repetimos hasta que multiplo8 <=500 */
+            while (multiplo8 < 500) {
+
+                document.write(multiplo8);
+                document.write('<br>');
+                multiplo8 = x * 8;            
+                x++;
+            }
+        </script>
+    </body>
+</html>

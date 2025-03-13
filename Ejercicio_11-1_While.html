@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!--
+Realizar un programa que imprima 25 términos de la serie 11 - 22 - 33 - 44, etc. (No se ingresan valores por teclado).
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11-2 While</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos dos variables serie y x */
+        let serie = 11; // serie es una variable acumulador, que iniciamos a 11 (primer termino pedido) */
+        let x = 1; // x es una variable contador, que iniciamos a valor 1 
+
+        /* Inicimos la estructura while */
+        while (x <= 25) {
+
+            /* Imprimimos la serie pedida */
+            document.write(serie+' ');
+            //document.write('<br>');
+            x = x + 1;
+            serie = serie + 11; // serie es una variable acumulador
+        }
+    </script>
+</body>
+</html>

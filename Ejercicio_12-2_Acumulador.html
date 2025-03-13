@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12-2 Acumulador</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables:
+        * x = contador
+        * suma = suma de las alturas por pantalla
+        * /
+        let x = 1;
+        let suma = 0;
+        let altura;
+
+        /* Iniciamos el bucle, mientras  el contador sea menor o igual a 5 */
+        while (x <= 5) {
+            
+            altura = parseInt(prompt('Ingrese la altura en centímetros(Ej. 175)'));
+
+            /* Acumulamos las alturas */
+            suma = suma + altura;
+
+            /* Incrementamos el contador */
+            x = x + 1;
+        }
+
+        /* Calculamos el promedio */
+        let promedio = suma / 5;
+
+        /* Sacamos por pantalla el resultado */
+        document.write('La altura promedio de las cinco personas es:' + promedio);
+    </script>
+</body>
+</html>

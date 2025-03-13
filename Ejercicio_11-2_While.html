@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-Mostrar los múltiplos de 8 hasta el valor 500. Debe aparecer en pantalla 8 -16 -24, etc.
+Mostrar los múltiplos de 8 hasta el valor 500. Debe aparecer en pantalla 8, 16, 24, etc.
 -->
 
 <html lang="es">
@@ -17,14 +17,15 @@ Mostrar los múltiplos de 8 hasta el valor 500. Debe aparecer en pantalla 8 -16 
             /* Definimos dos variables, e iniciamos una de ellas como contador */
             let multiplo8,x;
             x = 1; //Iniciamos la variable x como un contador.
-            multiplo8 = 0;
+            multiplo8 = 8;
 
             /* Iniciamos el bucle while, que repetimos hasta que multiplo8 <=500 */
-            while (multiplo8 < 500) {
+            while (multiplo8 <= 500) {
 
-                document.write(multiplo8);
+                /* Mostramos por pantalla los resultados */
+                multiplo8 = multiplo8 + 8;     
+                document.write('x=' + x + ' / multiplo=' + multiplo8);
                 document.write('<br>');
-                multiplo8 = x * 8;            
                 x++;
             }
         </script>

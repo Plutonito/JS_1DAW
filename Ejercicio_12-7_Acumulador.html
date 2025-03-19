@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12-7 Acumulador</title>
+</head>
+<body>
+    <script>
+
+        /* Creamos las variables */
+        let cantpares = 0; // Contador de valores pares
+        let cantimpares = 0; // Contador de valores impares
+        let x = 0;
+        let valor;
+
+        /* Iniciamos el bucle */
+        while (x < 5) {
+            valor = parseInt(prompt('Ingrese un valor'));
+            if (valor % 2 == 0) {
+                cantpares = cantpares + 1;
+            } else {
+                cantimpares = cantimpares + 1;
+            }
+
+            /* Incrementamos en 1 el contador de iteraciones */
+            x = x + 1;
+        }
+
+        /* Mostramos los resultados */
+        document.write('Cantidad de valores pares ingresados:' + cantpares);
+        document.write('<br>');
+        document.write('Cantidad de valores impares ingresados:' + cantimpares);
+    </script>
+</body>
+</html>

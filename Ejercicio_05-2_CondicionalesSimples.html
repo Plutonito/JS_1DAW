@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5-2</title>
+    
+    <style>
+        .NEU {color:blue;}
+        .OK {color:green;}
+        .NOK {color:red;}
+    </style>
+    
+</head>
+<body>
+
+    <section id='Mensajes'>
+        <h1 class="NEU">Resultado de la validación de claves</h1>
+    </section>
+    
+    <script>
+    
+        /*Creamos dos variables vacias donde guardar las claves */
+        let clave1;
+        let clave2;
+        
+        /*Pedimos por pantalla introducir las claves */
+        clave1 = prompt('Ingrese una clave:');
+        clave2 = prompt('Repita el ingreso de la clave:');
+        
+        /*Aplicamos condicion */
+        if (clave1 == clave2) {            
+            document.write('<h2 class="OK">Ingresó las dos claves iguales</h2>'); /*Si las claves son iguales */
+        }
+        if (clave1 != clave2) {
+            document.write('<h2 class="NOK">Ingresó las dos claves diferentes</h2>'); /*Si las claves son diferentes */
+        }
+    </script>
+</body>
+</html>

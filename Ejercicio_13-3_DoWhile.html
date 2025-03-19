@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13-3 do/while</title>
+</head>
+<body>
+    <script>
+
+        /* Creamos las variables que necesitamos */
+        let documento;  // numero de documento
+        let edad; // edad
+        let totalpersonas = 0; // acumulador de la cantidad total de personas
+        let cantvarones = 0; // acumulador de la cantidad de varones
+        let cantmujeres = 0; // acumulador de la cantidad de mujeres
+        let cantvaronesgrandes = 0; // acumulador de la cantidad de varones >16 y <65
+
+        /* Iniciamos el bucle do */
+        do {
+
+            /* Pedimos por teclado el numero de documento */
+            documento = parseInt(prompt('Ingrese nro de documento (0 para finalizar):'));
+
+            /* Si el numero del documento es mayor que 0, preguntamos el resto de datos */
+            if (documento > 0) {
+                edad = parseInt(prompt('Ingrese la edad:'));
+                sexo = prompt('Ingrese el sexo (masculino (m)/femenino(f)):');
+                
+                /* Si es varon */
+                if (sexo == 'm' | sexo == 'M') {
+                    cantvarones = cantvarones + 1; // Aumentamos la variable cantvarones
+                    
+                    /* Si es mayor de 16 y <65, aumentamos la variable cantvaronesgrandes */
+                    if (edad >= 16 && edad <= 65) { 
+                        cantvaronesgrandes = cantvaronesgrandes + 1;
+                    }
+                }
+                
+                /* Si es mujer */
+                if (sexo == 'f' | sexo == 'F') {
+                    cantmujeres = cantmujeres + 1; // Aumentamos la variable cantvarones
+                }
+                
+                /* En cualquier caso aumentamos la variable totalpersonas */
+                totalpersonas = totalpersonas + 1; 
+            }
+        } while (documento != 0); // El bucle termina cuando documento es 0
+        
+        /* Mostramos los resultados por pantalla */
+        document.write('Total de personas censadas: ' + totalpersonas + '<br>');
+        document.write('Cantidad de varones: ' + cantvarones + '<br>');
+        document.write('Cantidad de mujeres: ' + cantmujeres + '<br>');
+        document.write('Cantidad de varones entre 16 y 65 años: ' + cantvaronesgrandes + '<br>');
+    </script>
+</body>
+</html>

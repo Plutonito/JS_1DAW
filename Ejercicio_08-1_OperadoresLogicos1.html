@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores lógicos en estructuras condicionales</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables */
+        let dia, mes, año;
+
+        /* Introducimos los valores por teclado, con pedir el dia y el mes es suficiente*/
+        dia = parseInt(prompt('Ingrese día'));
+        mes = parseInt(prompt('Ingrese mes'));
+
+        /* Aplicamos las condiciones, solo es necesario aplicarlas al dia y el mes */
+        if (dia == 25 && mes == 12) {
+            document.write('La fecha ingresada corresponde a navidad');
+        } else {
+            document.write('La fecha ingresada no corresponde a navidad');
+        }
+    </script>
+
+</body>
+</html>

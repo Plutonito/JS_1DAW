@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores lógicos en estructuras condicionales</title>
+</head>
+<body>
+    <script>
+
+        /* Definicion de variables */
+        let sueldo, antiguedad;
+
+        /* Introduccion de valores por teclado */
+        sueldo = parseFloat(prompt('Ingrese el sueldo del empleado'));
+        antiguedad = parseInt(prompt('Ingrese la antigüedad del empleado'));
+
+        /* Aplicamos condiciones */
+        if (sueldo < 500 && antiguedad >= 10) {
+            document.write('Se le otorga un aumento del 20%');
+            document.write('<br>');
+            let sueldototal = sueldo + sueldo * 0.20;
+            document.write('El sueldo total es:' + sueldototal);
+        } else {
+            if (sueldo < 500 && antiguedad < 10) {
+                document.write('Se le otorga un aumento del 5%');
+                document.write('<br>');
+                let sueldototal = sueldo + sueldo * 0.05;
+                document.write('El sueldo total es:' + sueldototal);
+            } else {
+                document.write('El sueldo queda sin cambios:' + sueldo);
+            }
+        }
+    </script>
+</body>
+</html>

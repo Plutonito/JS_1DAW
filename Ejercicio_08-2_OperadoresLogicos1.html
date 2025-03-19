@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8-2: Operadores lógicos en estructuras condicionales</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables */
+        let num1, num2, num3;
+
+        /* Introducimos las variables por teclado */
+        num1 = parseInt(prompt('Ingrese primer valor'));
+        num2 = parseInt(prompt('Ingrese segundo valor'));
+        num3 = parseInt(prompt('Ingrese tercer valor'));
+
+        /* Aplicamos las condiciones */
+        if (num1 == num2 && num2 == num3) {
+            let resu = (num1 + num2) * num3; // Solo hacemos la operacion si se cumple la condicion
+            document.write('La suma de los dos primeros valores y multiplicado dicha suma por el tercero es:' + resu);
+        }
+        
+    </script>
+</body>
+</html>

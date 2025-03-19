@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<!-- 
+Confeccionar un programa que permita ingresar un valor del 1 al 10 y nos muestre la tabla de multiplicar del mismo (los primeros 12 términos)
+Ejemplo: Si ingreso 3 deberá aparecer en pantalla los valores 3, 6, 9, hasta el 36.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14-4 for</title>
+</head>
+<body>
+    <script>
+         /* Creamos las variables:
+         * tabla -> almacenará el número del 1-10
+         * conta -> array que almacenará el resultado de tabla*1, tabla*2...etc 
+         */
+        let tabla = parseInt(prompt('Ingrese un valor del 1 al 10:', ''));
+        let conta = [];
+
+        document.write('<h1>TABLA DEL ' + tabla + '</h1>');
+        for (let f = 1; f <= 12; f++) {
+            f_1 = f-1;
+            conta[f_1] = tabla*f;
+
+            /* Mostramos el resultado */
+            document.write(tabla + ' x ' + f + ' = ' + conta[f_1] + '<br>');
+        }
+    </script>
+</body>
+</html>

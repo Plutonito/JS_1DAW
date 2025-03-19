@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12-6 Acumulador</title>
+</head>
+<body>
+    <script>
+
+        /* Inciamos las variables */
+        let total1 = 0; 
+        let x = 0;
+        let nro;
+
+        /* Introducimos valores de la lista 1 */
+        while (x < 3) {
+            nro = parseInt(prompt('Ingrese valor de la primera lista:'));
+            total1 = total1 + nro; // Total acumulado  en la lista 1
+            x = x + 1; // Contador de valores introducimos
+        }
+
+        /* Introducimos valores de la lista 2 */
+        let total2 = 0;
+        x = 0;
+        while (x < 3) {
+            nro = parseInt(prompt('Ingrese valor de la segunda lista:', ''));
+            total2 = total2 + nro; // Total acumulado  en la lista 2
+            x = x + 1; // Contador de valores introducimos
+        }
+
+        /* Comparamos las listas segun las condiciones dadas */
+        if (total1 > total2) {
+            document.write('Tiene mayor valor acumulado la lista1');
+        } else if (total1 < total2) {
+            document.write('Tiene mayor valor acumulado la lista2');
+        } else {
+            document.write('Tienen el mismo valor acumulado las dos listas');
+        }
+
+        /* Para verificarlo mostramos ambos valores acumulados */
+        document.write('<hr>');
+        document.write('lista1 ='+total1);
+        document.write('<br>');
+        document.write('lista2 ='+total2);
+    </script>
+</body>
+</html>

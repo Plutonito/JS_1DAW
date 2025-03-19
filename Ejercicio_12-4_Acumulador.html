@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12-4 Acumulador</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables */
+        let serie = 0;
+        let x = 1;
+
+        /* Bucle, siempre que x<20 */
+        while (x <= 20) {
+            
+            /* Mostramos el elemento de la serie (serie+5) */
+            serie = serie + 5;
+
+            /* Mostramos el resultado por pantalla */
+
+            document.write('Iteracion #' + x + ': ' + serie);
+            document.write('<br>');
+
+            /* Incrementamos el contador de iteraciones en 1 */
+            x = x + 1;
+        }
+
+    </script>
+</body>
+</html>

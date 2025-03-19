@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13-2 do/while</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables */
+        let nrocuenta;  // numero de cuenta
+        let nombre; // nombre del cliente
+        let saldo = 0; // saldo inicial
+        let saldoacre = 0; // saldo acreedor
+
+        /* Iniciamos el bucle do */
+        do {
+            nrocuenta = parseInt(prompt('Ingrese nro de cuenta:'));
+
+            /* Si el numero de cuenta es mayor que cero */
+            if (nrocuenta > 0) {
+                nombre = prompt('Nombre del cliente:');
+                saldo = parseFloat(prompt('Saldo actual:'));
+                if (saldo > 0) {
+                    saldoacre = saldoacre + saldo;
+                    document.write(nombre + ' tiene saldo acreedor<br>');
+                } else {
+                    if (saldo < 0) {
+                        document.write(nombre + ' tiene saldo deudor<br>');
+                    } else {
+                        document.write(nombre + ' tiene saldo nulo<br>');
+                    }
+                }
+                document.write('Numero de cuenta' +nrocuenta+ '<br>');
+
+            }
+        } while (nrocuenta >= 0); // El bucle do se realiza hasta que nrcuenta<=0
+
+        document.write('Suma total de saldos acreedores:' + saldoacre);
+    </SCript>
+</body>
+</html>

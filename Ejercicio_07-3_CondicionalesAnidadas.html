@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras condicionales anidadas en Javascript</title>
+</head>
+<body>
+    <script>
+        /* Definicion de variable */
+        let num;
+
+        /* Introduccion de numero por teclado */
+        num = parseInt(prompt('Ingrese un número de 1,2 o 3 dígitos'));
+
+        /* Evaluacion de condiciones */
+        if (num < 10) {
+            document.write('Tiene un dígito');
+            } else {
+                if (num < 100) {
+                    document.write('Tiene dos dígitos');
+                } else {
+                    document.write('Tiene más de tres dígitos');
+            }
+        }
+    </script>
+</body>
+</html>

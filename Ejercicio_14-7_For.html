@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de estructura for con Javascript</title>
+</head>
+<body>
+    <script>
+        /*Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+                  a)	La cantidad de valores negativos ingresados.
+                  b)	La cantidad de valores positivos ingresados.
+                  c)	La cantidad de múltiplos de 15.
+                  d)	El valor acumulado de los números ingresados que son pares.*/
+
+                  let cantnegativos = 0;
+        let cantpositivos = 0;
+        let mult15 = 0;
+        let sumapares = 0;
+        for (let f = 1; f <= 10; f++) {
+            let valor = parseInt(prompt('Ingrese un valor:'));
+            if (valor < 0) {
+                cantnegativos++;
+            } else {
+                if (valor > 0) {
+                    cantpositivos++;
+                }
+            }
+            if (valor % 15 == 0 && valor != 0) {
+                mult15++;
+            }
+            if (valor % 2 == 0) {
+                sumapares = sumapares + valor;
+            }
+        }
+        document.write('Cantidad de valores negativos:' + cantnegativos + '<br>');
+        document.write('Cantidad de valores positivos:' + cantpositivos + '<br>');
+        document.write('Cantidad de múltiplos de 15:' + mult15 + '<br>');
+        document.write('Suma de los valores pares ingresados:' + sumapares + '<br>');
+    </script>
+</body>
+</html>

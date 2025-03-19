@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6-1</title>
+</head>
+<body>
+    <script>
+    
+        /*Creamos la variables vacias */
+        let num1, num2;
+        
+        /*Pedimos por teclado los números */
+        num1 = parseFloat(prompt('Ingrese el primer número:'));
+        num2 = parseFloat(prompt('Ingrese el segundo número:'));
+        
+        /*Evaluamos las condiciones */
+        if (num1 > num2) { //Rama verdadera
+            let suma, diferencia;
+            suma = num1 + num2;
+            diferencia = num1 - num2;
+            document.write('La suma es:' + suma);
+            document.write('<br>');
+            document.write('La diferencia es:' + diferencia);
+        } else {  //Rama falsa       
+            let producto, division;
+            producto = num1 * num2;
+            division = num1 / num2;
+            document.write('El producto es ' + producto);
+            document.write('<br>');
+            document.write('La división del primero respecto al segundo es:' + division);
+        }
+    </script>
+</body>
+</html>

@@ -8,62 +8,72 @@
 </head>
 <body>
     <script>
-        //Confeccionar una función a la cual le envíe tres enteros y 
-  //los muestre ordenados de menor a mayor.
+    //Confeccionar una función a la cual le envíe tres enteros y 
+    //los muestre ordenados de menor a mayor.
 
-  function mostrarOrdenados(x1,x2,x3)
-  {
-    if (x1<x2 && x1<x3)
+    /* Creamos la función con 3 parámetros de entrada*/
+    function mostrarOrdenados(x1,x2,x3)
     {
-      document.write(x1+' ');
-      if (x2<x3)
+
+      /* Evalúo quien es mayor que quien...*/
+      if (x1<x2 && x1<x3)   /* x1 menor que x2 y que x3 => x1 es el mas chico */
       {
-        document.write(x2+' '+x3);
+        document.write(x1+' ');
+        if (x2<x3) /* Si x2 es menor que x3 => x1, x2, x3 */
+        {
+          document.write(x2+' '+x3);
+        }
+        else /* En caso contrario x1, x3,x2 */
+        {
+          document.write(x3+' '+x2);
+        }
       }
-      else
+      else /*Si x1 no es el mas chico...lo es x2 o x3 */
       {
-        document.write(x3+' '+x2);
-      }
+        if (x2<x3) /* Si x2 es menor que x3, => x2 es el mas pequeño */
+        {
+          document.write(x2+' ');
+          if (x1<x3) /* Si x1 es menor que x3 => x2.x1.x3 */
+          {
+            document.write(x1+' '+x3);
+          }
+          else /* En caso contrario x2,x3,x1 */
+          {
+            document.write(x3+' '+x1);
+          }
+        }
+        else /* La última opción es que x3 sea el mas chico */
+        {
+          document.write(x3+' ');
+          if (x1<x2) /* Si x1 menor que x2 => x3,x1,x2 */
+          { 
+            document.write(x1+' '+x2);
+          }
+          else /* ultimo caso x3,x2,x1 */
+          {
+            document.write(x2+' '+x1);
+          }
+        }
+      } 
     }
-    else
-    {
-      if (x2<x3)
-      {
-        document.write(x2+' ');
-        if (x1<x3)
-        {
-          document.write(x1+' '+x3);
-        }
-        else
-        {
-          document.write(x3+' '+x1);
-        }
-      }
-      else
-      {
-        document.write(x3+' ');
-        if (x1<x2)
-        {
-          document.write(x1+' '+x2);
-        }
-        else
-        {
-          document.write(x2+' '+x1);
-        }
-      }
-    } 
-  }
 
-  var valor1,valor2,valor3;
-  valor1=prompt('Ingrese primer valor:','');
-  valor1=parseInt(valor1);
-  valor2=prompt('Ingrese segundo valor:','');
-  valor2=parseInt(valor2);
-  valor3=prompt('Ingrese tercer valor:','');
-  valor3=parseInt(valor3);
-  document.write('Los tres valores ingresados son '+valor1+' '+valor2+' '+valor3+'<br>'); 
-  document.write('Los valores ordenados de menor a mayor son: ');
-  mostrarOrdenados(valor1,valor2,valor3);
+    /* Definimos las variables que necesitamos */
+    let valor1,valor2,valor3;
+
+    /* Las pedimos por pantalla */
+    valor1=prompt('Ingrese primer valor:','');
+    valor1=parseInt(valor1);
+    valor2=prompt('Ingrese segundo valor:','');
+    valor2=parseInt(valor2);
+    valor3=prompt('Ingrese tercer valor:','');
+    valor3=parseInt(valor3);
+
+    /* Mostramos el resultado */
+    document.write('Los tres valores ingresados son '+valor1+' '+valor2+' '+valor3+'<br>'); 
+    document.write('Los valores ordenados de menor a mayor son: ');
+
+    mostrarOrdenados(valor1,valor2,valor3);
+
     </script>
 </body>
 </html>

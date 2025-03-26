@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3: Alumno</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #333;
+      }
+      .result {
+        font-weight: bold;
+        color: red;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <header>
+    <h1>Ejercicio 3</h1>
+  </header>
+
+    <section>
+
+      <script>
+
+        /* Pedir datos al usuario con prompt */
+        let edad = parseInt(prompt("¿Cuántos años tienes?"));
+        let carnet = prompt("¿Tienes carnet de conducir? (sí/no)");
+        let matriculado = prompt("¿Estás matriculado en una autoescuela? (sí/no)");
+
+        /* Llevamos a minúsculas todos los valores obtenidos */
+        matriculado = matriculado.toLowerCase();
+        carnet = carnet.toLowerCase();
+
+        /* Definimos la variable que guardará el mensaje a mostrar */
+        let mensaje = "";
+
+        /* Condicionales con operadores lógicos compuestos */
+        if (edad>=18 && (carnet=="sí" || carnet=="si")) {
+          mensaje = "✅ Puedes conducir, ya tienes carnet.";
+
+        } else if (edad>=18 && carnet=="no" && (matriculado == "sí" || matriculado == "si")) {
+          mensaje = "⚠️ Eres mayor de edad, pero pronto lo sacarás.";
+
+        } else if (edad>=18 && carnet=="no" && matriculado=="no") {
+            mensaje = "⚠️ Eres mayor de edad, pero necesitas el carnet de conducir, matricúlate y lo obtendrás.";
+
+        } else if (edad>=16 && edad<18 && (carnet=="sí" || carnet=="si")) {
+          mensaje = "⚠️ Aunque tengas carnet, debes conducir acompañado";
+
+        } else if (edad>=16 && edad<18 && carnet=="no" && (matriculado === "si" || matriculado === "sí")) {
+            mensaje = "⚠️ Podrás conducir acompañado cuando te saques el carnet.";        
+        
+        } else if (edad>=16 && edad<18 && carnet=="no" && matriculado === "no") {
+            mensaje = "⚠️ Matricúlate y cuando saques el carnet podrás conducir acompañado.";     
+
+        } else if (edad <16) {
+          mensaje = "🚫 No puedes conducir. Necesitas ser mayor de edad y tener carnet.";
+        }
+
+        /* Mostrar el resultado en la página */
+        document.write('<p class=result>');
+        document.write(mensaje);
+        document.write('</p>');
+
+      </script>
+
+    </section>
+
+  </body>
+</html>

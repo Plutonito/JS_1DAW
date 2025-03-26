@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1: Alumno</title>
+</head>
+<body>
+
+  <header>
+    <h1>Ejercicio 1</h1>
+  </header>
+
+
+  <section>
+
+    <script>
+
+      /* Definimos las variables */
+      let numero;
+
+      /* Pedimos al usuario un número mayor que */
+      do {
+        numero = parseInt(prompt("Introduce un número mayor que 10 para contar hasta él:"));
+      } while (isNaN(numero) || numero < 10);
+
+      /* Contamos hasta el número usando do-while */
+      let contador = 1;
+      do {
+
+        /* Vemos si es par o impar */
+        let division = contador % 2;
+        let ispar='IMPAR';
+
+        if (division==0) {
+          ispar = '(PAR)';  
+        } 
+		
+        /* Mostramos el resultado por pantalla */
+        document.write('NUMERO = ' + contador + ' ' + ispar + '<br>');
+        contador++;
+
+      } while (contador <= numero);
+
+    </script>
+
+  </section>
+</body>
+</html>
+

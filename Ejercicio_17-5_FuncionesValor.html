@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!--
+Confeccionar una función que solicite la carga de 5 valores por teclado
+y retorne su suma.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de funciones</title>
+
+    <style>
+        p {
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        /* Definimos la variable necesaria */
+        let s;
+        let numeros=[];
+
+        /* Creamos las funciones */
+        //Función para pedir el número
+        function pideValor() {            
+            let valor;
+            do {
+                valor = parseFloat(prompt('Ingresa un valor: '));
+            } while (isNaN(valor))
+            return valor         
+        }
+
+        //Función para sumar los valores
+        function suma5Valores() {
+            let suma = 0;
+            for (let f = 0; f <= 4; f++) {
+                numeros[f] = pideValor();
+                suma += numeros[f];
+            }
+            return suma;
+        }
+
+        /* Llamamos a la función que suma los 5 valores */
+        s = suma5Valores();
+        document.write('<p>La suma de los 5 valores es: ' + s + '</p>');
+
+        /* Mostramos los elementos del array */
+        for (let it=0; it<numeros.length; it++) {
+			it1 = it+1;
+            document.write('El número pedido en la posición ' + it1 + ' es ' + numeros[it]+'<br>');
+        }
+
+    </script>
+</body>
+</html>

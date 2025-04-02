@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- 
+Desarrollar una función que retorne la cantidad de dígitos 
+que tiene una variable entera positiva de hasta 5 dígitos.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17.3: Funciones</title>
+</head>
+<body>
+    <script>
+
+        /* Definimos las variables */
+        let valor;
+
+        /* Creamos la función */
+        function cantidadDigitos(x) {
+            if (x < 10) {
+                return 1;
+            } else {
+                if (x < 100) {
+                    return 2;
+                } else {
+                    if (x < 1000) {
+                        return 3;
+                    } else {
+                        if (x < 10000) {
+                            return 4;
+                        } else {
+                            if (x < 100000) {
+                                return 5;
+                            } else {
+                                return 'Chacho!! Es un número muuuuuy grande';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Iniciamos la petición del número */
+        do {
+            valor = parseInt(prompt('Ingrese un valor positivo de hasta 5 dígitos:'));
+        } while (isNaN(valor) || valor<=0);
+
+        /* Mostramos la información por pantalla */
+        document.write('La cantidad de dígitos del valor ingresado es:<br><h1>' + cantidadDigitos(valor)+'</h1>');
+    </script>
+</body>
+</html>

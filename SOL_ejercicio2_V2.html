@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+
+INICIO
+
+    DECLARAR N (Variable con el número de filas de la pirámide)
+
+    // Pedimos al usuario un número entero positivo
+    HACER
+        PEDIR N AL USUARIO ("Introduce un número entero positivo")
+        CONVERTIR N A ENTERO
+    MIENTRAS N NO ES NÚMERO O N <= 0 (Una pirámide de 0 filas no tiene sentido)
+
+    // Bucle descendente desde N hasta 1
+    PARA i DESDE N HASTA 1 DECRECIENDO
+        fila ← cadena vacía
+
+        // Bucle para concatenar caritas a la fila
+        PARA j DESDE 1 HASTA i
+            CONCATENAR "😄" A fila
+        FIN PARA
+
+        MOSTRAR fila centrada con el número i antes y después
+    FIN PARA
+
+FIN
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIRÁMIDE DE </title>
+
+    <style>
+        .centrado {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1 class="centrado">PIRÁMIDE INVERTIDA DE CARITAS SONRIENTES</h1>
+    </header>
+
+    <script>
+
+        /* Definimos la variable que guardará el número pedido */
+        let N;
+
+        /* La pedimos por pantalla */
+        do {
+            N = parseInt(prompt("Introduce un número entero positivo:"));
+        } while (isNaN(N) || N<=0);       
+
+        /* Iniciamos un bucle regresivo, desde N -> 1 */
+        for (let i=N; i>=1; i--) {  
+            
+            /* Iniciamos una cadena vacia, que será un acumulador*/
+            let fila = "";
+
+            /* Iniciamos un bucle for desde 1 -> i, ya que su dimension depende de la fila en la que estemos */
+            for (let j=1; j<=i; j++) {  
+                fila = fila + "&#x1F604";
+            }
+
+            /* Mostramos la fila y hacemos una nueva línea, cada una en un parrafo distinto */
+            document.write("<p class='centrado'>");
+            document.write(i+' '+fila+' '+i);
+            document.write("</p>");
+        }
+
+    </script>
+</body>
+</html>

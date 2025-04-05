@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 18-1: Objetos</title>
+</head>
+<body>
+
+    <script>
+
+    /* Creamos el objeto modulo */
+    let modulo = {
+
+            /* Atributos */
+            nombreModulo: "Lenguaje de marcas", 
+            nombreCorto: "LND",
+            numeroAlumnos: 18,
+
+            /* Metodo para mostrar el nombre del modulo */
+                mostrardatos: function(){
+                let mensaje="";
+                mensaje += 'Módulo: '+this.nombreModulo+'\n';
+                mensaje += 'Código: '+this.nombreCorto+'\n';
+                mensaje += 'Número de alumnos: '+this.numeroAlumnos;
+                alert(mensaje);
+            },
+
+            /*Metodo para cambiar los atributos nombreModulo y nombreCorto, sólo si son diferentes */
+            modificarnombre: function(nombrenuevo, cortonuevo){
+
+                /* Verificamos si se cambia el nombre del módulo */
+                if (nombrenuevo != this.nombreModulo){
+                    alert('ATENCIÓN: se va a modificar el nombre del módulo de '+this.nombreModulo+' a '+nombrenuevo);
+                    this.nombreModulo = nombrenuevo;
+                } else if (nombrenuevo == this.nombreModulo) {
+                    alert('El módulo ya tiene este nombre: '+this.nombreModulo);
+                }
+                
+                /* Verificamos si se cambia el nombre corto del módulo */
+                if (cortonuevo != this.nombreCorto) {
+                    alert('ATENCIÓN: se va a modificar el código del módulo de '+this.nombreCorto+' a '+cortonuevo);
+                    this.nombreCorto = cortonuevo;
+                } else if (nombreCorto == this.nombreCorto) {
+                    alert('El módulo ya tiene este nombre: '+this.nombreCorto);
+                }
+            },
+
+            /* Método para introducir los alumnos */
+            introalumnos: function(){
+                this.alumnos = [];
+
+                /* Pedimos el número de nombres a introducir */
+                let num;
+                do {
+                    num = parseInt(prompt('¿Cuántos alumnos quieres añadir?'));
+                } while (isNaN(num) || num<=0);
+
+                /* Iniciamos un FOR por el número de alumnos que vamos a añadir */
+                for (it=0; it<num; it++) {
+                    let nombre;
+                    let it1 = it+1;
+
+                    /* Pedimos el nombre del alumno para la iteracion it */
+                    do {
+                        nombre = prompt('Nombre del alumno #'+it1+':');
+                    } while (!isNaN(nombre));
+
+                    /* Ahora guardamos el nombre en el array */
+                    this.alumnos[it] = nombre;
+                    alert('Alumno '+nombre+' añadido correctamente');
+                }
+            }
+
+
+        };
+
+        /* a) Mostramos los atributos definidos */
+        document.write('<h1>Datos iniciales</h1>');
+        document.write('<p>Nombre del módulo: '+modulo.nombreModulo+'</p>');
+        document.write('<p>Código del módulo: '+modulo.nombreCorto+'</p>');
+        document.write('<p>Número de alumnos: '+modulo['numeroAlumnos']+'</p>');
+
+        /* b) Llamamos al nuevo método definido */
+        modulo.mostrardatos();
+
+        /* c) Llamamos al método para modificar los nombres y modificamos ambos */
+        modulo.modificarnombre('Programación', 'PRO');
+        
+        /* Modificamos el número de alumnos */
+        modulo.numeroAlumnos = 16;
+        
+        document.write('<hr><h1>Datos tras el apartado c</h1>');
+        document.write('<p>Nombre del módulo: '+modulo.nombreModulo+'</p>');
+        document.write('<p>Código del módulo: '+modulo.nombreCorto+'</p>');
+        document.write('<p>Número de alumnos: '+modulo['numeroAlumnos']+'</p>');
+
+        /* d) Añadimos el array con el nombre de los 5 alumnos */
+        modulo.introalumnos();
+
+        document.write('<hr><h1>Datos tras el apartado d</h1>');
+        document.write('<p>Nombre del módulo: '+modulo.nombreModulo+'</p>');
+        document.write('<p>Código del módulo: '+modulo.nombreCorto+'</p>');
+        document.write('<p>Número de alumnos: '+modulo['numeroAlumnos']+'</p>');
+        document.write('<p>Alumnos Matriculados: '+modulo.alumnos+'</p>');
+
+    </script>
+
+</body>
+</html>

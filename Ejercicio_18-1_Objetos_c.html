@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 18-1: Objetos</title>
+</head>
+<body>
+
+    <script>
+
+    /* Creamos el objeto modulo */
+    let modulo = {
+
+            /* Atributos */
+            nombreModulo: "Lenguaje de marcas", 
+            nombreCorto: "LND",
+            numeroAlumnos: 18,
+
+            /* Metodo para mostrar el nombre del modulo */
+                mostrardatos: function(){
+                let mensaje="";
+                mensaje += 'Módulo: '+this.nombreModulo+'\n';
+                mensaje += 'Código: '+this.nombreCorto+'\n';
+                mensaje += 'Número de alumnos: '+this.numeroAlumnos;
+                alert(mensaje);
+            },
+
+            /*Metodo para cambiar los atributos nombreModulo y nombreCorto, sólo si son diferentes */
+            modificarnombre: function(nombrenuevo, cortonuevo){
+
+                /* Verificamos si se cambia el nombre del módulo */
+                if (nombrenuevo != this.nombreModulo) {
+                    alert('ATENCIÓN: se va a modificar el nombre del módulo de '+this.nombreModulo+' a '+nombrenuevo);
+                    this.nombreModulo = nombrenuevo;
+                } else if (nombrenuevo == this.nombreModulo) {
+                    alert('El módulo ya tiene este nombre: '+this.nombreModulo);
+                }
+                
+                /* Verificamos si se cambia el nombre corto del módulo */
+                if (cortonuevo != this.nombreCorto) {
+                    alert('ATENCIÓN: se va a modificar el código del módulo de '+this.nombreCorto+' a '+cortonuevo);
+                    this.nombreCorto = cortonuevo;
+                } else if (nombreCorto == this.nombreCorto) {
+                    alert('El módulo ya tiene este nombre: '+this.nombreCorto);
+                }
+            }
+            };
+
+        /* a) Mostramos los atributos definidos */
+        document.write('<h1>Datos iniciales</h1>');
+        document.write('<p>Nombre del módulo: '+modulo.nombreModulo+'</p>');
+        document.write('<p>Código del módulo: '+modulo.nombreCorto+'</p>');
+        document.write('<p>Número de alumnos: '+modulo['numeroAlumnos']+'</p>');
+
+        /* b) Llamamos al nuevo método definido */
+        modulo.mostrardatos();
+
+        /* c) Llamamos al método para modificar los nombres y modificamos ambos */
+        modulo.modificarnombre('Programación', 'PRO');    
+        
+        document.write('<hr><h1>Datos tras el apartado c</h1>');
+        document.write('<p>Nombre del módulo: '+modulo.nombreModulo+'</p>');
+        document.write('<p>Código del módulo: '+modulo.nombreCorto+'</p>');
+        document.write('<p>Número de alumnos: '+modulo['numeroAlumnos']+'</p>');
+
+    </script>
+
+</body>
+</html>

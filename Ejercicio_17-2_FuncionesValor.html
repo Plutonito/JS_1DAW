@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio con funciones que devuelven un valor</title>
+</head>
+<body>
+    <script>
+        //Elaborar una función a la cual le envíe el valor del lado de un cuadrado 
+        //y me retorne su perímetro.
+
+        function retornarPerimetro(lado) {
+            let perimetro;
+            perimetro = lado * 4;
+            return perimetro;
+        }
+
+        let lado = parseInt(prompt('Ingrese la medida del lado de un cuadrado:'));
+        document.write('El perímetro del cuadrado es:' + retornarPerimetro(lado));
+    </script>
+</body>
+</html>

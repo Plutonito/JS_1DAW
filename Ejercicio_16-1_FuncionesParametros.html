@@ -8,48 +8,23 @@
 </head>
 <body>
     <script>
-        //Confeccionar una función a la cual le envíe tres enteros y 
-  //los muestre ordenados de menor a mayor.
+        //Elaborar una función a la cual le enviemos tres enteros y muestre el menor.
 
-  function mostrarOrdenados(x1,x2,x3)
+  function mostrarMenor(x1,x2,x3)
   {
     if (x1<x2 && x1<x3)
     {
-      document.write(x1+' ');
-      if (x2<x3)
-      {
-        document.write(x2+' '+x3);
-      }
-      else
-      {
-        document.write(x3+' '+x2);
-      }
+      document.write('El menor de los tres valores es :'+x1);
     }
     else
     {
       if (x2<x3)
       {
-        document.write(x2+' ');
-        if (x1<x3)
-        {
-          document.write(x1+' '+x3);
-        }
-        else
-        {
-          document.write(x3+' '+x1);
-        }
+        document.write('El menor de los tres valores es :'+x2);
       }
       else
       {
-        document.write(x3+' ');
-        if (x1<x2)
-        {
-          document.write(x1+' '+x2);
-        }
-        else
-        {
-          document.write(x2+' '+x1);
-        }
+        document.write('El menor de los tres valores es :'+x3);
       }
     } 
   }
@@ -62,8 +37,7 @@
   valor3=prompt('Ingrese tercer valor:','');
   valor3=parseInt(valor3);
   document.write('Los tres valores ingresados son '+valor1+' '+valor2+' '+valor3+'<br>'); 
-  document.write('Los valores ordenados de menor a mayor son: ');
-  mostrarOrdenados(valor1,valor2,valor3);
+  mostrarMenor(valor1,valor2,valor3);
     </script>
 </body>
 </html>

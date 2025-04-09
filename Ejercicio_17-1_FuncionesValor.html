@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de funciones que devuelven valor en Javascript</title>
+</head>
+<body>
+    <script>
+        //Confeccionar una función a la cual le envíe tres enteros 
+        //y retorne el mayor de ellos.
+
+        function retornarMayor(x1, x2, x3) {
+            if (x1 > x2 && x1 > x3) {
+                return x1;
+            } else {
+                if (x2 > x3) {
+                    return x2;
+                } else {
+                    return x3;
+                }
+            }
+        }
+
+        let valor1 = parseInt(prompt('Ingrese primer valor:'));
+        let valor2 = parseInt(prompt('Ingrese segundo valor:'));
+        let valor3 = parseInt(prompt('Ingrese tercer valor:'));
+        document.write('Los tres valores ingresados son ' + valor1 + ' ' + valor2 + ' ' + valor3 + '<br>');
+        let may = retornarMayor(valor1, valor2, valor3);
+        document.write('El mayor de los tres es :' + may);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 18-1: Objetos</title>
+</head>
+<body>
+
+    <script>
+
+    /* Creamos el objeto modulo */
+    let modulo = {
+
+        nombreModulo: "Lenguaje de marcas", 
+        nombreCorto: "LND",
+        numeroAlumnos: 18,
+
+        /* Metodo para mostrar el nombre del modulo */
+        mostrarnombre: function(){
+            alert(this.nombreModulo);
+        },
+
+         /* Metodo para mostrar el nombre corto del modulo */
+         mostrarnombrecorto: function(){
+            alert(this.nombreCorto);
+        },
+
+        /* Metodo para mostrar el número de alumnos */
+            numeroalumnos: function(){
+                alert(this.numeroAlumnos);
+        },
+
+        /*Metodo para cambiar los atributos nombreModulo y nombreCorto, sólo si son diferentes */
+        cambiarnombre: function(nombrenuevo, cortonuevo){
+            if (nombrenuevo != this.nombreModulo) {
+                this.nombreModulo = nombrenuevo;
+            }
+
+            if (cortonuevo != this.nombreCorto) {
+                this.nombrecorto = cortonuevo;
+            }
+        }
+        };
+
+
+
+
+    </script>
+
+</body>
+</html>

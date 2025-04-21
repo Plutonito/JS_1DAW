@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!--
+Ingresar una serie de nombres por teclado hasta que se cargue la palabra Fin, y mostrar cuántos nombres se ingresaron.
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19-1 y 19-2: Constructor String</title>
+</head>
+<body>
+
+    <header><h1>Ejercicio 19-1 y Ejercicio 19-2</h1></header>
+
+    <section>
+
+        <script>
+
+            /* Definimos las variables */
+            let nombre;
+            let final;
+            let cant = 0;
+            let nombres = [];
+
+            /* Bucle do/while para pedir los datos haste que se ingrese la palabra fin */
+            do {
+                nombre = prompt('Ingrese un nombre (Terminar ingresando la palabra "Fin"):');
+                nombre = nombre.trim();
+
+                /* Incrementamos en uno el contador */
+                cant++;
+
+                /* Incluimos el nombre en el array nombres */
+                nombres.push(nombre);
+
+                /* Verificamos si el nombre es la cadena para finalizar */
+                final = nombre.toLowerCase();
+                final = final.trim();
+
+            } while (final != 'fin');
+            
+            /* Dado que también se ha incluído la palabra fin en el contador, la descontamos de cant */
+            cant--;
+
+            /* Mostramos el resultado */
+            document.write('<p>Se ingresaron ' + cant + ' nombres</p>');
+
+            /* Mostramos los nombres */
+            document.write('<h2>I (FOR sobre el array nombres). Los nombres introducidos son:</h2><hr>');
+            for (it=0; it<nombres.length-1; it++) {  // Hasta nombres.length-1 para eliminar el fin
+                document.write(nombres[it]+'<br>');
+            }
+            document.write('<hr>');
+
+            /* Otra manera de presentar los nombres del array */
+            document.write('<h2>II (Usando slice). Los nombres introducidos son:</h2><hr>');
+            nombres2 = nombres.slice(0,nombres.length-1);
+            for (it=0; it<nombres2.length; it++) {
+                document.write(nombres2[it]+'<br>');
+            }
+            document.write('<hr>');
+
+        </script>
+
+    </section>
+
+</body>
+</html>

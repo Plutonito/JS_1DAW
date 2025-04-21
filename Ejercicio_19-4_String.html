@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Ingresar una palabra o texto por teclado y determinar si es o no un palíndromo. 
+(Palabra que se lee de igual manera de adelante hacia atrás, que de atrás hacia delante).
+-->
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19-4: String</title>
+
+    <style>
+        .palindromo {
+            color: blue;
+        }
+        .nopalindromo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <header><h1>Ejercicio 19-4</h1></header>
+    
+    <section>
+        <script>
+            /* Creamos las variables */
+            let texto;
+            let cant;
+
+            /* Ingrese una palabra o frase */
+            texto = prompt('Ingrese una palabra o frase:');
+            cant = 0;
+
+            /* Iniciamos un bucle FOR sobre los caracteres del texto */
+            for (let f = 0; f < texto.length; f++) {
+
+                /* charAt nos indica el caracter en el indice f
+                Ahora verificamos si el primero es igual al último,
+                el segundo al penultimo y asi sucesivamente
+                */
+                if (texto.charAt(f) == texto.charAt(texto.length - 1 - f)) {
+                    cant++;
+                }
+            }
+
+            /* Ahora verificamos si la cantidad de caracteres que coinciden
+            es igual a la longitud del texto */
+            if (cant == texto.length) {
+                document.write('<p class="palindromo"><em>'+ texto + '</em> se lee igual en ambas direcciones, <strong>¡Es un gran palíndromo!</strong></p>');
+            } else {
+                document.write('<p class="nopalindromo"><em>'+ texto + ' no se lee igual en ambas direcciones, <strong>¡Es una simple palabra!</strong></p>');
+            }
+            
+        </script>
+
+    </section>
+</body>
+</html>

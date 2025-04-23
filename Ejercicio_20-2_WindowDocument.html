@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- 
+Crea  un document HTML que contenga un script de JS que muestre el ancho y alto de la ventana 
+del navegador en una ventana emergente.
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercio 20.2 Constructores Window y Document</title>
+        <style>
+            h1 {
+                color: red;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <section>
+
+        <h1>Ejercicio 20-2: botón redirige a otra pagina</h1>
+        <button onclick="redirigeSelf()" id="botonSelf">¿Quieres enterarte del último cotilleo?</button>
+        <hr>
+        <button onclick="redirigeBlank()" id="botonBlank">¿Quieres enterarte del último cotilleo? &uarr;</button>
+
+        <script>
+            /* Creamos una función que cambia la dirección de la página */
+            function redirigeSelf () {
+                window.location.href = 'https://www.hola.com';
+            };
+
+             /* Creamos una función que abre en una nueva página de la página */
+            function redirigeBlank () {
+                window.open('https://www.hola.com');
+            };
+            
+            /* Otra opcion para no poner onclick, Adquirimos el elemento por su id y le añadimos un escuchador de evento, 
+            cuando se haga click en el boton, redirige a la función redirige
+            document.getElementById('botonSelf').addEventListener('click', redirigeSelf);
+            document.getElementById('botonBlank').addEventListener('click', redirigeBlank);
+			
+			*/
+
+        </script>
+
+    </section>
+    </body>
+</html>
+

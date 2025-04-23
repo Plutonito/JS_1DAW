@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uso de window</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    
+    <section>
+        <button onclick="mostrarAtributos()">Haz click para mostrar los atributos de window</button><hr>
+        <button onclick="nuevaVentana()">Haz click para abrir una nueva ventana</button><hr>
+        <button onclick="cierraVentana()">Haz click para cerrar esta ventana</button><hr>
+        <button onclick="timeOut()">Haz click y espera...</button><hr>
+        <button onclick="recargar()">Haz click para recargar esta página</button><hr>
+
+    </section>
+    
+    
+    <script>
+
+        /* Funcion mostrarAtributos() */
+        function mostrarAtributos() {
+            
+            window.name = 'MiVentana';
+
+            let msj = '';
+            let altura=window.innerHeight;
+            let anchura=window.innerWidth;
+            let alturaOut=window.outerHeight;
+            let anchuraOut=window.outerWidth;
+            let url=window.location;
+            let estado=window.status;
+            let isCerrado=window.closed;
+            let nombre=window.name;       
+
+            msj += 'window.innerHeight='+altura+'px\n';
+            msj += 'window.innerWidth='+anchura+'px\n';
+            msj += 'window.outerHeight='+alturaOut+'px\n';
+            msj += 'window.outerWidth='+anchuraOut+'px\n';
+            msj += 'window.url='+url+'\n';
+            msj += 'window.status='+estado+'\n';
+            msj += 'window.name='+nombre+'\n';            
+
+            alert(msj);
+        }
+
+         /* Funcion nuevaVentana() */
+         function nuevaVentana() {
+            let url='http://facebook.com';
+            let anchura = parseInt(prompt('De qué anchura quieres la ventana?'));
+            let altura = parseInt(prompt('De qué altura quieres la ventana?'));
+
+            window.open(url, 'Nueva Ventana', "width="+anchura+",height="+altura);
+        }
+
+         /* Funcion cierraVentana() */
+         function cierraVentana() {
+            window.close();
+        }
+
+        /* Funcion timeOut() */
+        function timeOut() {
+            window.setTimeout("alert('Este mensaje ha salido a los 3 segundos');", 3000);
+        }
+
+        /* Funcion recargar() */
+        function recargar() {
+            window.location.reload();
+        }     
+          
+    </script>
+    
+</body>
+</html>

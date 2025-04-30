@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uso de Document</title>
+    <meta charset="utf-8">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .contenedor {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #mensaje {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="contenedor">
+            <h2 id="subtitulo">Formulario de Datos</h2>
+            <form id="miFormulario">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre"><br><br>
+
+                <label for="edad">Edad:</label><br>
+                <input type="number" id="edad" name="edad"><br><br>
+
+                <label for="ciudad">Ciudad:</label><br>
+                <select id="ciudad" name="ciudad">
+                    <option value="madrid">Madrid</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="valencia">Valencia</option>
+                </select><br><br>
+
+                <button type="button" id="enviar" onclick="byId()">Acceder con getElementsById</button><br><br>
+                <button type="button" id="enviar1" onclick="byName()">Acceder con getElementsByName</button><br><br>
+                <button type="button" id="enviar2" onclick="byTagName()">Acceder con getElementsByTagName</button><br><br>
+                <button type="button" id="enviar3" onclick="byClassName()">Acceder con getElementsByClassName</button><br><br>
+                <button type="button" id="enviar4" onclick="_querySelector()">Acceder con querySelector</button>
+            </form>
+            <div id="mensaje"></div>
+        </section>
+
+        <section class="contenedor">
+            <h2>Lista de Elementos</h2>
+            <ul id="miLista">
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+            <button id="agregarElemento">Agregar Elemento</button>
+        </section>
+    </main> 
+    
+    <script>
+
+       
+    </script>
+    
+</body>
+</html>

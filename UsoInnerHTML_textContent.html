@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diferencia entre innerHTML y textContent</title>
+
+  <!-- 
+  <link rel="stylesheet" type="text/css" href="style1.css">
+  -->
+
+  <style>
+    main {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+  </style>
+  
+
+</head>
+<body>
+
+ 
+    <main id="principal">
+        <section id="seccion">
+            <p id="parrafo">
+                Este párrafo tiene un elemento <strong style="display:none;">oculto que no se muestra y otro </strong> no oculto que <em>si se</em> muestra
+            </p>
+
+            <button onclick="alerta()">Haz click...</button>
+
+        </section>
+    </main>
+
+    <script>
+        
+        function alerta() {
+
+            /* Acceso al parrafo con id=parrafo */
+            const parrafo1 = document.getElementById('parrafo');
+
+            alert('Con textContent vemos esto: \n'+parrafo1.textContent);
+            alert('Con innerHTML vemos esto: \n'+parrafo1.innerHTML);
+
+            /*
+            const seccion = document.getElementById('seccion');
+            const p1 = document.createElement('p');
+            p1.textContent = 'Con textContent vemos esto: '+parrafo1.textContent;
+            seccion.appendChild(p1);
+
+            const p2 = document.createElement('p');
+            p2.textContent = 'Con innerHTML vemos esto:'+parrafo1.innerHTML;
+            seccion.appendChild(p2);
+            */
+        }
+
+    </script>
+
+</body>
+</html>

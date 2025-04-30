@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería con Funciones y Eventos</title>
+
+  <!-- 
+  <link rel="stylesheet" type="text/css" href="style1.css">
+  -->
+
+  <style>
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    header {
+      font-family: 'Courier New', Courier, monospace;
+      border-style: dashed;
+      border-color: red;
+      border-radius: 5px;
+      background-color: whitesmoke;
+    }
+
+    button {
+      appearance: auto;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0.3em;
+      padding: 0.7em;
+      border-style: none;
+      border-color: red;
+      border-radius: 5px;
+      background-color: aquamarine;
+    }
+
+    .cuadro {
+      width: 100px;
+      height: 100px;
+      background-color: lightgray;
+      border: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .resaltado {
+      background-color: mediumslateblue;
+      color: white;
+      border-radius: 12px;
+      border-color: yellow;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  </style>
+  
+
+</head>
+<body>
+
+  <nav>
+    <button id="boton1">Botón #1 (click)</button>
+    <button id="boton2">Botón #2 (pasa el ratón)</button>
+    <button id="boton3">Activar Galería interactiva (pasa y quita el ratón)</button>
+  </nav>
+
+  <header>
+    <h1>Galería Interactiva para mostrar el uso de classList</h1>
+    <p>Pasa el ratón sobre los cuadros para ver el efecto.</p>
+  </header>
+
+  <main id="galeria"></main>
+
+  <footer>
+    <p>Interacción con JavaScript addEventListener + classList</p>
+  </footer>
+
+  <script>
+
+    /* Evento que activa activa el boton 1 */
+    const boton = document.getElementById('boton1');
+    boton.addEventListener('click', funcionBoton1);
+
+    function funcionBoton1() {
+      alert('Has hecho click en el primer botón');
+    }
+
+    /* Evento que activa el segundo botón */
+    const boton2 = document.getElementById('boton2');
+    boton2.addEventListener('mouseover', () => {
+      alert('Has pasado el ratón por el segundo botón');
+    });
+
+    
+    /* Evento que activa activa el tercer botón */
+    const boton3 = document.getElementById('boton3');
+    boton3.addEventListener('mouseout', galeriaInteractiva);
+
+    /* Funcion que activa la galería interactiva */
+    function galeriaInteractiva() {
+
+      /* Preguntamos cuántos cuadros queremos, por defecto */ 
+      const cantidad = parseInt(prompt("¿Cuántos cuadros quieres crear?", "4"));
+
+      /* Obtenemos el objeto de la galeria */
+      const galeria = document.getElementById('galeria');
+      
+      /* Iniciamos un FOR sobre el número de cuadros que queremos poner */
+      for (let i = 1; i <= cantidad; i++) {
+
+        /* Creamos un elemento section */
+        const cuadro = document.createElement('section');
+        cuadro.classList.add('cuadro');
+        cuadro.textContent = '#'+i;
+        cuadro.setAttribute('id', 'cuadro_'+i);
+
+        /* Aplicamos el resaltado al cuadro cuando entramos con el ratón */
+        cuadro.addEventListener('mouseover', () => {
+          cuadro.classList.add('resaltado');
+          cuadro.textContent = 'Cuadro resaltado';
+          }
+        );
+
+        /* Eliminamos el resaltado al cuadro cuando salimos con el ratón */
+        cuadro.addEventListener('mouseout', () => {
+          cuadro.classList.remove('resaltado');
+          cuadro.textContent = '#'+i;
+          }
+        );
+
+        /* Convertimos cada cuadro en un hijo de galeria */
+        galeria.appendChild(cuadro);
+      }
+    }
+
+  </script>
+
+</body>
+</html>

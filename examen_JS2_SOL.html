@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Examen JS 2</title>
+  <style>
+
+    header {
+      background-color: beige;
+    }
+
+    button {
+      border: none;
+      background-color: antiquewhite;
+      padding: 8px;
+      font-weight:bold;
+      font-family:'Courier New', Courier, monospace
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+      margin: 20px;
+    }
+
+    #seccionTabla {
+      text-align: center;
+    }
+
+    .resaltado {
+      background-color: lightsalmon;
+    }
+
+    .tabla-colorida {
+      background-color: greenyellow;
+      color: blue;
+    }
+
+    .nuevo-titulo {
+      background-color: lightpink;
+      text-align: center;
+      color: white;
+    }
+
+    .textoFinal {
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: green;
+      text-align: center;
+      margin: 8px;
+      padding: 8px;
+      border-color: blue;
+      border-width: 2px;
+      border-style:dashed;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header id="titulo" onmouseover="cambiaTitulo()">
+    <h1>Examen JS2</h1>
+  </header>
+
+  <nav>
+    <button id="button1">Mostrar Valores</button>
+    <button id="button2">Agregar a la tabla</button>
+    <button id="button3">Colorear Tabla</button>
+    <button id="button4">Recargar la Página</button><hr>
+  </nav>
+
+  <section id="seccionFormulario">  
+    <!-- Creamos el formulario -->
+    <form id="formulario">
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre"><br><br>
+      
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad"><br><br>
+    
+    </form>
+  </section>
+
+  <section id="seccionTabla">
+  
+    <!-- Creamos la tabla vacía sin valores, únicamente las cabeceras -->
+    <table id="tablaDatos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+	  
+      <tbody id="cuerpoTabla">
+        <!-- Filas dinámicas aquí -->
+      </tbody>
+    </table>
+
+  </section>
+  <!-- Script de JS -->
+  <script>
+  
+    /*-------------------
+    MOSTRAR VALORES
+    ---------------------*/
+    /* Evento click en el boton */
+    const button1 = document.getElementById('button1');
+    button1.addEventListener('click', mostrarValores);
+    
+    /* Funcion para mostrar los valores que vienen del formulario */
+    function mostrarValores() {
+      const nombre = document.getElementById("nombre").value;
+      const edad = document.getElementById("edad").value;
+      alert("Nombre: " + nombre + "\nEdad: " + edad);
+    }
+
+    /*-------------------
+    AGRGAR LA FILA A LA TABLA
+    ---------------------*/
+    /* Evento click en el botón */
+    const button2 = document.getElementById('button2');
+    button2.addEventListener('click', agregarFila);
+
+    /* Función para agregar una fila */
+    function agregarFila() {
+
+      /* Recibimos los valores que vienen de los campos del formulario */
+      const nombre = document.getElementById("nombre").value;
+      const edad = document.getElementById("edad").value;
+
+      /* Recibimos el elemento que guarda el tbody de la tabla */
+      const cuerpoTabla = document.getElementById("cuerpoTabla");
+
+      /* Verificamos que ambas variables están definidas */
+      if (nombre && edad) {
+
+        /* Creamos una fila */
+        const fila = document.createElement("tr");
+
+        /* Creamos la celda para el nombre y le damos el valor que viene del formulario */
+        const celdaNombre = document.createElement("td");
+        celdaNombre.textContent = nombre;
+
+        /* Creamos la celda para la edad y le damos el valor que viene del formulario */
+        const celdaEdad = document.createElement("td");
+        celdaEdad.textContent = edad;
+
+        /* Incluimos los elementos td creados como hijos de fila */
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaEdad);
+
+        /* Incluimos la fila creada como elemento hijo del elemento tbody */
+        cuerpoTabla.appendChild(fila);
+
+        /* Aplicamos a la fila el evento onmouseover para que se resalte la fila */
+        fila.addEventListener("mouseover", resalta);
+        function resalta() {
+          fila.classList.add("resaltado");
+        };
+
+        /* Eliminamos el estilo una vez que el ratón sale de la fila */
+        fila.addEventListener("mouseout", desresalta);
+        function desresalta() {     
+          fila.classList.remove("resaltado");
+        };
+
+        /* Limpiamos el formulario para borrar los valores que tenga */
+        document.getElementById("formulario").reset();
+
+      } else {
+        alert("Por favor completa todos los campos.");
+      }
+    }
+
+    /*-------------------
+    COLOREAR LA TABLA
+    ---------------------*/
+    /* Evento mouseover */
+    const button3 = document.getElementById('button3');
+    button3.addEventListener('mouseover', botonColor);
+
+    /* Funcion que cambia los colores de la tabla */
+    function botonColor() {
+      /* Cambiamos el fondo de la tabla */
+      const tabla = document.getElementById("tablaDatos");
+      tabla.classList.add("tabla-colorida");
+    }
+
+    /*-------------------
+    3 RECARGAR LA PAGINA
+    ---------------------*/
+    const button4 = document.getElementById('button4');
+    button4.addEventListener('click', () => {
+      window.location.reload();
+    });
+
+
+    /*-------------------
+    4 CAMBIAR ESTILOS DEL ENCABEZADO
+    ---------------------*/
+    function cambiaTitulo() {
+      const titulo = document.getElementById("titulo");
+      titulo.classList.add("nuevo-titulo");
+      titulo.innerHTML = '<h1>Este examen lo voy a <del>suspender</del> aprobar</h1>';
+
+      const formulario = document.getElementById("seccionFormulario");
+      formulario.style.textAlign = "center";
+
+      const tabla = document.getElementById("tablaDatos");
+      tabla.style.margin = "auto";
+
+      const nav = document.getElementsByTagName("nav");
+      nav[0].style.textAlign = "center";
+
+      
+      const botones = document.getElementsByTagName("button");
+      for (it=0; it<=botones.length; it++) {
+        botones[it].style.background = "black";
+        botones[it].style.color = "white";
+      }
+      
+
+    }
+
+    /*-------------------
+    5 CREAR SECTION FINAL
+    ---------------------*/
+    /* Array para el apartado 5 */
+    let noticias = new Array();
+    noticias[0] = "El secretario general del PCE y diputado de IU en el grupo Sumar del Congreso de los Diputados, Enrique Santiago, ha reclamado que tanto Red Eléctrica Española como todo el sector energético pasen a estar bajo el estricto control público, tras el apagón general que se registró este lunes en la península ibérica.";
+    noticias[1] = "El apagón masivo del pasado lunes dejó algunas imágenes llamativas en la España de 2025, como la de personas reunidas en la calle alrededor del transistor de un vecino o agolpadas junto a un automóvil con la radio encendida a todo volumen.";
+    noticias[2] = "El operador de la red eléctrica española descartó que un ciberataque haya sido la causa del masivo apagón eléctrico que paralizó España y Portugal y afectó brevemente a parte del sur de Francia el lunes.";
+ 
+    /* Creamos la seccion hija de body*/
+    const seccionFinal = document.createElement("section");
+    seccionFinal.setAttribute("id","seccionFinal")
+
+    /* Iniciamos un FOR para crear los elementos article e incluir el contenido de texto*/
+    for (let it=0; it<=noticias.length-1; it++) {
+      const article = document.createElement("article");
+      article.setAttribute("id","article_"+it);
+      article.textContent = noticias[it];
+      article.classList.add("textoFinal");
+      seccionFinal.appendChild(article);
+    }
+    let body = document.getElementsByTagName("body");
+    body[0].appendChild(seccionFinal);
+
+  </script>
+
+</body>
+</html>
+

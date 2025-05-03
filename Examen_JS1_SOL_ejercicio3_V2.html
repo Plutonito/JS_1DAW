@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+
+INICIO
+
+    DECLARAR valor, opcion
+
+    // Pedimos al usuario un número decimal entre 0 y 10
+    HACER
+        PEDIR valor AL USUARIO ("Ingresa un número decimal entre 0 y 10")
+        CONVERTIR valor A DECIMAL
+    MIENTRAS valor NO ES NÚMERO O valor < 0 O valor > 10
+
+    MOSTRAR "El número inicial es: valor"
+
+    // Repetimos 3 veces el proceso de transformación
+    PARA it DESDE 1 HASTA 3 HACER
+
+        // Pedimos al usuario una opción válida [a, b]
+        HACER
+            PEDIR opcion AL USUARIO ("REGLA #it: Ingresa una opción [a, b]")
+            CONVERTIR opcion A MINÚSCULA
+        MIENTRAS opcion ≠ 'a' Y opcion ≠ 'b'
+
+        // Aplicamos la regla según la opción
+        SI opcion = 'a' ENTONCES
+            valor ← valor / 1.2
+            MOSTRAR "REGLA #it: a => se divide por 1.2"
+            MOSTRAR "Resultado: valor"
+        SINO SI opcion = 'b' ENTONCES
+            valor ← valor * 1.15
+            MOSTRAR "REGLA #it: b => se incrementa un 15%"
+            MOSTRAR "Resultado: valor"
+        FIN SI
+
+    FIN PARA
+
+    MOSTRAR "El número final es valor"
+
+FIN
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUGANDO CON NÚMEROS</title>
+
+	<style>
+        body {
+            color: purple;
+            text-align: center;
+        }
+	</style>
+
+</head>
+<body>
+
+	<header>
+		<h1>JUGANDO CON NÚMEROS</h1>
+	</header>
+	
+	<section>
+	
+		<script>
+		
+			/* Definimos y pedimos una variable por pantalla */
+			let valor;
+            let opcion;
+  
+			
+			/* Do/while para pedir el valor de entrada */
+			do {
+				valor = parseFloat(prompt("Ingresa un número decimal entre 0 y 10:"));				
+			} while (isNaN(valor) || valor<0 || valor>10);
+
+            /* Mostramos el número inicial */
+            document.write('<h2>El número inicial es: '+valor+'<hr>');
+
+			/* Dado que se cumplen las condiciones, pedimos al usuario 3 veces que introduzca una letra */
+            for (it=1; it<=3; it++) {
+
+                /* Pedimos la letra */
+                do {
+                    opcion = prompt("REGLA #"+it+" Ingresa una opcion [a,b]:");
+                    opcion = opcion.toLowerCase();			
+                } while (opcion != 'a' && opcion != 'b');
+
+                /* Mostramos por pantalla la regla elegida */
+                switch(opcion) {
+                    case 'a':
+                        valor= valor/1.2;
+                        document.write('REGLA #'+it+': '+' '+opcion+' => se divide por 1.2<br>');
+                        document.write('Resultado='+valor+'<hr>');
+                        break;
+                    case 'b':
+                        valor= valor*1.15;
+                        document.write('REGLA #'+it+': '+' '+opcion+' -> se incrementa un 15%<br>');
+                        document.write('Resultado='+valor+'<hr>');
+                            break;
+                }
+            }
+            
+            /* Mostramos el resultado final */
+            document.write('El número final es '+valor+'</h2>');
+			
+		</script>
+	
+	</section>
+</body>
+</html>

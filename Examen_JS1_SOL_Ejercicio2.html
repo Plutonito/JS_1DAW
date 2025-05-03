@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercio 2: Alumno</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+    .resultado {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ejercicio 2</h1>
+  </header>
+
+    <section>
+
+        <script>
+		
+			for (it=1; it<=3; it++) {
+		
+				// Pedimos al usuario que introduzca un día de la semana
+				let day = prompt("Usuario #"+it+" escriba un día de la semana, respetando las tildes (ej: lunes, LUNES o Lunes):");
+				let message = "";
+
+				// Verificamos si hay valor definido para la variable day
+				if (day) {
+
+				// Vemos los casos posibles
+				switch (day) {
+
+					case 'lunes':
+					case 'Lunes':
+					case 'LUNES':
+					message = "¡Ánimo! Es lunes, comienza la semana.";
+					break;
+
+					case 'martes':
+					case 'Martes':
+					case 'MARTES':
+					message = "Es martes, seguimos adelante.";
+					break;
+					
+					case 'miércoles':
+					case 'Miércoles':
+					case 'MIÉRCOLES':
+					message = "Miércoles, mitad de semana.";
+					break;
+					
+					case 'jueves':
+					case 'Jueves':
+					case 'JUEVES':
+					message = "Jueves, ya casi es viernes.";
+					break;
+
+					case 'viernes':
+					case 'Viernes':
+					case 'VIERNES':
+					message = "¡Por fin viernes! A disfrutar.";
+					break;
+					
+					case 'sábado':
+					case 'Sábado':
+					case 'SÁBADO':
+					message = "Sábado, día de descanso.";
+					break;
+
+					case 'domingo':
+					case 'Domingo':
+					case 'DOMINGO':
+					message = "Domingo, día de relax antes de empezar la semana.";
+					break;
+
+					default:
+					message = "Día no válido. Escribe un día de la semana con el siguiente formato, respetando las tildes: [lunes], [Lunes], [LUNES]";
+				}
+
+				// Si day no tiene un valor
+				} else {
+				message = "No ingresaste ningún valor.";
+				}
+
+				// Mostrar el resultado en el HTML
+				document.write('<p class=resultado>');
+				document.write(message);
+				document.write('</p><hr>');			
+			}
+			
+        </script>
+
+    </section>
+
+</body>
+</html>

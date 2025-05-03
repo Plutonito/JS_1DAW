@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+
+pseudocódigo:
+
+INICIO
+
+    MOSTRAR encabezado: "CALCULADORA DE NÚMEROS PRIMOS"
+
+    DECLARAR valor, isprimo, resto
+
+    // Pedir número al usuario
+    HACER
+        PEDIR valor AL USUARIO ("Ingresa un número mayor que 30")
+        CONVERTIR valor A ENTERO
+
+        SI valor <= 30 ENTONCES
+            MOSTRAR mensaje: "Pon un número mayor de 30 papafrita"
+        SINO SI valor NO ES NÚMERO
+            MOSTRAR mensaje: "Pon un número, no letras y que sea mayor de 30, totufo"
+        FIN SI
+
+    MIENTRAS valor NO ES NÚMERO O valor <= 30
+
+    // Comprobar si es primo
+    isprimo ← VERDADERO
+
+    MOSTRAR: "El número valor es divisible por 1, obvio"
+
+    PARA it DESDE 2 HASTA valor - 1 HACER
+        resto ← valor % it
+
+        SI resto == 0 ENTONCES
+            isprimo ← FALSO
+            MOSTRAR: "El número valor es divisible por it"
+        FIN SI
+    FIN PARA
+
+    MOSTRAR: "El número valor es divisible por sí mismo, obvio"
+
+    // Resultado final
+    SI isprimo ENTONCES
+        MOSTRAR EN VERDE: "valor es PRIMO"
+    SINO
+        MOSTRAR EN ROJO: "valor NO es PRIMO"
+    FIN SI
+
+FIN
+
+
+-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA DE NÚMEROS PRIMOS</title>
+
+	<style>
+		.estilo1 {
+			color: blue;
+			font-weight: bold;
+			font-size: 14px;
+		}
+
+		.primo {
+			color: green;
+		}
+
+		.noprimo {
+			color: red;
+		}
+	</style>
+
+</head>
+<body>
+
+	<header>
+		<h1>CALCULADORA DE NÚMEROS PRIMOS</h1>
+	</header>
+	
+	<section>
+	
+		<script>
+		
+			/* Definimos y pedimos una variable por pantalla */
+			let valor;
+			let isprimo;
+			let resto;
+			
+			/* Do/while para pedir el valor de entrada */
+			do {
+				valor = parseInt(prompt("Ingresa un número mayor que 30:"));
+				
+				if (valor<=30) {
+					alert('Pon un número mayor de 30 papafrita');
+				} else if (isNaN(valor)) {
+					alert('Pon un número, no letras y que sea mayor de 30, totufo');
+				}
+				
+			} while (isNaN(valor) || valor<=30);
+
+			/* Calculamos si es primo el valor. Iniciamos la variable isprimo=true */
+			isprimo = true;
+			
+			/* Es divisible por 1 SIEMPRE */
+			document.write('<p class=estilo1>');
+			document.write('El número ' + valor + ' es divisible por 1, obvio');
+			document.write('</p>');
+			
+			/* Iniciamos el bucle for para verificar los números por los que es divisible valor */
+			for (it=2; it<valor; it++) {
+			
+				/* Calculamos el resto de la division de valor%it */
+				resto = valor%it;
+				
+				/* Si el resto es nulo, implica que valor es divisible por it, por tanto no es primo */
+				if (resto==0) {
+					
+					isprimo = false;
+					document.write('<p class=estilo1>');
+					document.write('El número ' + valor + ' es divisible por ' + it);
+					document.write('</p>');
+				}
+			}
+			
+			/* Es divisible entre sí mismo */
+			document.write('<p class=estilo1>');
+			document.write('El número ' + valor + ' es divisible por ' + valor+ ', obvio');
+			document.write('</p>');
+			
+			/* Mostramos el mensaje de salida según sea primo o no */
+			if (isprimo) {
+				document.write('<p><h2 class=primo>');
+				document.write(valor + ' es PRIMO ');
+				document.write('</h2></p>');
+			} else {
+				document.write('<p><h2 class=noprimo>');
+				document.write(valor + ' NO es PRIMO ');
+				document.write('</h2></p>');
+			}
+			
+		</script>
+	
+	</section>
+</body>
+</html>

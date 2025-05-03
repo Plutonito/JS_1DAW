@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- 
+Escribe un documento HTML con un título y 3 secciones. En la sección superior e inferior pon un texto, el que quieras. En la sección central no pongas ningún texto. 
+Escribe un script de JS que agregue un nuevo elemento artículo, con algún texto dentro de la sección central, como hijo de la sección.
+Aplica los siguientes estilos:
+Título: color rojo, tamaño de letra 3em, fuente negrita y fondo antiquewhite.
+Artículo añadido: color azul, tamaño de letra 2em y fondo lightcoral.
+
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercio 20-5 Constructores Window y Document</title>
+        <style>
+            * {
+                text-align: center;
+            }
+            h1 {
+                color: red;
+                font-size: 3em;
+                font-weight: bold;
+                background-color: antiquewhite;
+            }
+            article {
+                color: blue;
+                background-color: lightcoral;
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1 id="titulo">Ejercicio 20-5: Crear nuevo elemento dentro de otro</h1>
+
+        <section id="seccion1">Esta es la sección 1, creada con HTML</section>
+        <section id="seccion2"></section>
+        <section id="seccion3">Esta es la sección 3, creada con HTML</section>
+
+        <script>
+            /* Creamos un article para introducir en la section */
+            const nuevoDiv = document.createElement('article');
+
+            /* Le añadimos el contenido a article */
+            nuevoDiv.textContent = 'Este es un nuevo article';
+
+            /* Ahora lo incluimos como hijo de la seccion con id=seccion2 */
+             document.getElementById('seccion2').appendChild(nuevoDiv);
+        </script>
+    </body>
+</html>
+

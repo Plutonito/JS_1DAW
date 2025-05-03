@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+Crea un documento HTML que tenga un botón que abra una ventana nueva con un tamaño de anchura 600 px y altura 400 px. En esa nueva ventana abre la página que desees.
+Añade un Segundo botón que permita cerrar la ventana que has abierto inicialmente.
+
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercio 20.3 Constructores Window y Document</title>
+        <style>
+            h1 {
+                color: red;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <section>
+
+        <h1>Ejercicio 20-3: botón que abre y botón que cierra</h1>
+        <button id="abre">Abre... &check;</button>
+        <hr>
+        <button id="cierra">Cierra... &cross;</button>
+
+        <script>
+            /* Creamos una función que cambia la dirección de la página y la asignamos a 
+            una variable*/
+            let web;
+            function abreWeb () {
+                web = window.open('https://www.mcdonalds.es', 'mcdonalds', 'width=400,height=400');
+            };
+
+             /* Creamos una función que abre en una nueva página de la página */
+            function cierraWeb () {
+                web.close();
+            };
+            
+            /* Adquirimos el elemento por su id y le añadimos un escuchador de evento, 
+            cuando se haga click en el boton, redirige a las funciones requeridas */
+            document.getElementById('abre').addEventListener('click', abreWeb);
+            document.getElementById('cierra').addEventListener('click', cierraWeb);
+
+        </script>
+
+    </section>
+    </body>
+</html>
+

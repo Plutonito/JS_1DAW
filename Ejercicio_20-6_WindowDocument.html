@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+
+
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercio 20-6 Constructores Window y Document</title>
+        <style>
+            * {
+                text-align: center;
+            }
+            h1 {
+                color: red;
+                font-size: 3em;
+                font-weight: bold;
+                background-color: antiquewhite;
+            }
+            article {
+                color: blue;
+                background-color: lightcoral;
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1 id="titulo">Ejercicio 20-5: Crear nuevo elemento dentro de otro</h1>
+
+        <section id="seccion1">Esta es la sección 1, creada con HTML</section>
+        <section id="seccion2"></section>
+        <section id="seccion3">Esta es la sección 3, creada con HTML</section>
+
+        <section><button id="boton" onclick=cambiaEstilos()>Haz click...</button></section>
+
+        <script>
+            /* Creamos un article para introducir en la section */
+            const nuevoDiv = document.createElement('article');
+
+            /* Le añadimos el contenido a article */
+            nuevoDiv.textContent = 'Este es un nuevo article';
+
+            /* Ahora lo incluimos como hijo de la seccion con id=seccion2 */
+             document.getElementById('seccion2').appendChild(nuevoDiv);
+
+            /* Creamos la funcion que cambia los estilos */
+            function cambiaEstilos() {
+                alert('Cambiando estilos');
+                document.getElementById('titulo').style.backgroundColor = 'black';
+
+                document.getElementById('seccion1').style.fontSize = '2em';
+                document.getElementById('seccion1').style.backgroundColor = 'aquamarine';
+                document.getElementById('seccion1').style.padding = '12px';
+                                
+                document.getElementsByTagName('article')[0].style.backgroundColor = '#f9ff33';
+                document.getElementById('seccion2').style.border = '2px dashed';
+
+                document.getElementById('seccion3').style.backgroundColor = 'lightsalmon';
+                document.getElementById('seccion3').style.fontSize = '2em';
+                document.getElementById('seccion3').style.fontWeight = 'bold';
+            }
+
+        </script>
+    </body>
+</html>
+

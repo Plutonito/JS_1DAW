@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 
+Dado el siguiente código HTML, crea el código JS necesario para que:
+•	Solicite introducir un nuevo texto, que debe tener al menos 5 caracteres. Si no se cumple la condición debe persistir en la petición. 
+•	Solicite introducir un nuevo párrafo, que debe tener al menos 5 caracteres. Si no se cumple la condición debe persistir en la petición.
+•	Modifique el título con el nuevo título y el párrafo que se indica con el nuevo párrafo, introducidos en las peticiones anteriores.
+•	Debe mostrarse al final de la página, separado por una línea recta del resto de la página, los textos originales antes de ser cambiados.
+•	El título debe ser de color rojo, con letra negrita, fuente de tamaño 3em. Todos los elementos deben estar centrados en la página.
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercio 20-4 Constructores Window y Document</title>
+        <style>
+            * {
+                text-align: center;
+            }
+            h1 {
+                color: red;
+                font-size: 3em;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 id="titulo">Ejercicio 20-4: Texto cambiado con JS en un párrafo</h1>
+        </header>
+
+        <section id=""seccion1>
+            <p id="parrafo11">Este es el párrafo número 1 de la sección 1.</p>
+            <p id="parrafo12">Este es el párrafo número 2 de la sección 1.</p>
+        </section>
+
+        <section id=""seccion2>
+            <p id="parrafo21">Este es el párrafo número 1 de la sección 2, y es el párrafo a cambiar</p>
+            <p id="parrafo12">Este es el párrafo número 2 de la sección 2.</p>
+        </section>
+
+            <script>
+            
+            /* Guardamos el título origina en una variable para luego sacarlo por pantalla */
+            let textoTitulo = document.getElementById('titulo').textContent;
+
+            /* Pedimos el nuevo titulo de la página */
+            let nuevoTitulo;
+            let nuevoParrafo;
+            do {
+                nuevoTitulo = prompt('Inserta el nuevo Título (al menos 5 caracteres):');
+            } while (!isNaN(nuevoTitulo || nuevoTitulo.length<5));
+
+            /* Cambiamos el texto de la etiqueta <h1> por lo que hemos puesto en nuevo título */
+            document.getElementById('titulo').textContent = nuevoTitulo;       
+
+            /* Guardamos el párrafo original para mostrarlo después */
+            let textoParrafo = document.getElementById('parrafo21').textContent;
+
+            /* Pedimos el nuevo parrafo de la página */
+            do {
+                nuevoParrafo = prompt('Inserta el nuevo párrafo (al menos 5 caracteres):');
+            } while (!isNaN(nuevoParrafo || nuevoParrafo.length<5));
+
+            document.getElementById('parrafo21').textContent = nuevoParrafo;
+
+            /* Mostramos los cambios */
+            document.write('<hr><strong>Titulo original: '+textoTitulo+'</strong><br>');
+            document.write('<hr><strong>Párrafo original: '+textoParrafo+'</strong><br>');
+        </script>
+    </body>
+</html>
+

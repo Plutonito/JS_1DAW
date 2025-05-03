@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<!--
+Dado el siguiente código HTML hazle las modificaciones necesarias para que una vez que se realicen las siguientes modificaciones:
+*El encabezado pasa a tener color azul y fondo cyan.
+*Los párrafos que tienen la clase parrafoClase pasan a tener letra negrita de color rojo y fondo aquamarine.
+*Localizamos si hay alguno de los selectores de género activado y creamos un nuevo párrafo dentro de la sección que nos indique qué género se ha seleccionado.
+*Muestra en una ventana emergente todos los elementos input, de tal manera que muestre el nombre del input y su valor, separados por una carita sonriente.
+*Hay que añadir una función para el botón Reiniciar, de tal manera que recargue la página completa.
+
+-->
+
+<html>
+<head>
+    <title>Ejercicio 20-7</title>
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Ejercicio 20-7: Cambiando los estilos</h1>
+    </header>
+    
+    <section id="seccion">
+        <p class="parrafoClase">Este es un párrafo con la clase "parrafoClase".</p>
+        <p class="parrafoClase">Este es otro párrafo con la misma clase.</p>
+        <p>Este es otro párrafo no tiene clase.</p>
+    </section>
+
+    <form id="formulario">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido"><br><br>
+        <label>Género:</label><br>
+        <input type="radio" name="genero" value="masculino"> Masculino<br>
+        <input type="radio" name="genero" value="femenino"> Femenino<br><br>
+        <button type="button" onclick=cambiarElementos()>Manipular Elementos</button>
+        <button type="button" onclick=reinicia()>Reiniciar</button>
+    </form>
+
+    <script>
+
+        function reinicia() {
+            window.location.reload();
+        }
+
+        function cambiarElementos() {
+
+            // Cambiamos el fondo del titulo
+            const titulo = document.getElementById("titulo");
+            titulo.style.color = "blue";
+            titulo.style.backgroundColor ="cyan";
+
+            // Cambiamos los elementos que tengan la clase parrafoClase
+            const parrafos = document.getElementsByClassName("parrafoClase");
+            for (let i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.fontWeight = "bold";
+                parrafos[i].style.color = "red";
+                parrafos[i].style.backgroundColor = "aquamarine"
+            }
+
+            // Cambiamos los elementos cuyo name es genero
+            const radiosGenero = document.getElementsByName("genero");
+            for (let i = 0; i < radiosGenero.length; i++) {
+                if (radiosGenero[i].checked) {
+                    const nuevoParrafo = document.createElement('p');
+                    nuevoParrafo.textContent = 'El genero elegido es '+radiosGenero[i].value;
+                    document.getElementById('seccion').appendChild(nuevoParrafo);
+                }
+            }
+
+            /* Accedemos y mostramos en una ventana emergente los valores
+            de los elementos cuyo nombre es input */
+            const inputs = document.getElementsByTagName("input");
+            let msj ='';
+            for (let i = 0; i < inputs.length; i++) {
+                msj += inputs[i].name.toUpperCase() + ' 😄 ' + inputs[i].value.toUpperCase()+'\n';
+            }
+            alert(msj);
+        }
+    </script>
+</body>
+</html>
+
+

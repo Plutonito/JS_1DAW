@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Examen de JS2 V2 A</title>
+
+	<style>
+
+		body {
+			text-align: center;
+			margin:auto;
+		}
+
+		h1 {
+			font-family: 'Courier New', Courier, monospace;
+			width: 50%;
+			margin-left: 25%;
+			color: rebeccapurple;
+			background: lightcyan;
+			border-radius: 5px;
+		}
+
+		.estiloArticle {
+			margin: 5px;
+			padding: 8px;
+			border-radius: 5px;
+			border: dashed;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.estiloPie {
+			color: blue;
+			font-style: oblique;
+		}
+
+	</style>
+
+</head>
+<body>
+	<header>
+		<h1>Análisis de Texto</h1>
+	</header>
+
+
+	<form id="formTexto">
+		<textarea id="entrada" required rows="5"></textarea>
+	</form>
+	<button id="boton">Analizar</button>	
+
+	<section id="resultado">
+		<article id="textoMayusculas"></article>
+		<article id="textoLongitud"></article>
+		<article id="palabras4"></article>
+	</section>
+
+	<footer id="pie"></footer>
+
+	<script>
+
+		document.getElementById("boton").addEventListener("click",analizaTexto);
+		
+		function analizaTexto () {
+
+			//Obtenemos lo que haya en el textarea
+			let texto = document.getElementById("entrada").value;
+
+			//Reseteamos el formulario para la siguiente petición
+			document.getElementById("formTexto").reset();
+
+			//Eliminamos los espacios laterales si los hubiera
+			texto = texto.trim();
+			
+			// Si el texto tiene menos de 15 caracteres, pide nuevamente escribir en el formulario
+			if (texto.length<25) {
+				alert('El texto debe tener más de 25 caracteres');
+				window.location.reload();
+			} else {
+			
+				const resultado = document.getElementById("resultado");
+				
+				// Convertimos todo el texto a mayúsculas
+				const textoMayus = texto.toUpperCase();
+				
+				// Dividimos el texto en un array por palabras
+				const palabras = texto.split(" ");
+				
+				//Longitud total del texto	
+				const longitudTexto = texto.length;
+
+				// Date: obtener la hora actual
+				const ahora = new Date();
+				const hora = ahora.toLocaleTimeString();
+				
+				// Contamos palabras de más de 4 letras
+				let palabrasLargas = 0;
+                
+                //Iniciamos la lista ordenada, lo haremos en una cadena, para luego sacarlo como un textContent
+                //Se podría crear el elemento <ol> y luego apendizarlo al article que le corresponda
+				let msj = "<ol>";
+				for (let i = 0; i < palabras.length; i++) {
+						let pal = palabras[i].replaceAll(",","");
+						pal = pal.replaceAll(".","");
+						if (pal.length > 4) {
+							palabrasLargas++;
+                            
+                            //Colocamos cada palabra en un elemento <li>
+							msj += "<li>"+pal+"</li>";
+					}
+				}
+				msj += "</ol>";				
+				
+				// Creamos el elemento <article> con id=textoMayusculas					
+				const textoMayusculas = document.getElementById("textoMayusculas");
+				textoMayusculas.classList.add("estiloArticle");
+				textoMayusculas.innerHTML = "El texto en mayusculas es: <br>"+textoMayus;
+				resultado.appendChild(textoMayusculas);	
+
+				//Creamos el elemento <article> con id=textoLongitud
+				const textoLongitud = document.getElementById("textoLongitud");
+				textoLongitud.classList.add("estiloArticle");
+				textoLongitud.innerHTML = "La longitud del texto es: <br>"+longitudTexto;
+				resultado.appendChild(textoLongitud);
+
+				//Creamos el elemento <article> con id=palabras4
+				const palabras4 = document.getElementById("palabras4");
+				palabras4.classList.add("estiloArticle");
+					palabras4.innerHTML = "El número de palabras con mas de 4 letras es: "+palabrasLargas+"<br>"+msj;
+				resultado.appendChild(palabras4);
+				
+				const footer = document.getElementById("pie");
+				footer.innerHTML = "<p class='estiloPie'>La hora actual es: "+hora+"<p>";
+				document.body.appendChild(footer);
+			}
+
+		}
+
+		//Reseteamos el formulario para que se borre el contenido del textarea
+		document.getElementById("formTexto").reset();
+
+	</script>
+</body>
+</html>

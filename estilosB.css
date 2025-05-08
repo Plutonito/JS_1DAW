@@ -1,0 +1,41 @@
+        /*Estilo para todo el body */
+        body {
+            font-family: Arial, sans-serif; text-align: center;
+        }
+        
+        /*Estilos comunes a header y section */
+        header, section {
+            padding: 20px; border: 1px solid #ccc; margin: 10px;
+        }
+        
+        /*Estilos para todos los elementos de la tabla */
+        table, th, td {
+            margin: auto;
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 8px;
+        }
+        
+        /*Estilos para el header */
+        .estiloHeader {
+            background: lightyellow;
+            color: red;
+            font-weight: bold;
+        }
+    
+        /*Estilos para las secciones */
+        .estiloSecciones {
+            background-color: red;
+            border: 3px, solid, black;
+            border-radius: 5px;
+            font-family: Courier;
+            font-weight: bold;
+            color: white;
+        }
+
+        /*Estilo para la tabla cuando se pasa el raton por el thead */
+        .estiloTabla {
+            background-color: white;
+            color: black;
+            font-size: 3em;
+        }
